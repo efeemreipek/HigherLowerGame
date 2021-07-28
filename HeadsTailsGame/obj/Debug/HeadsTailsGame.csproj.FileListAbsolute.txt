@@ -1,0 +1,7 @@
+C:\Users\ipeke\Desktop\HeadsTailsGame\bin\Debug\HeadsTailsGame.exe.config
+C:\Users\ipeke\Desktop\HeadsTailsGame\bin\Debug\HeadsTailsGame.exe
+C:\Users\ipeke\Desktop\HeadsTailsGame\bin\Debug\HeadsTailsGame.pdb
+C:\Users\ipeke\Desktop\HeadsTailsGame\obj\Debug\HeadsTailsGame.csprojAssemblyReference.cache
+C:\Users\ipeke\Desktop\HeadsTailsGame\obj\Debug\HeadsTailsGame.csproj.CoreCompileInputs.cache
+C:\Users\ipeke\Desktop\HeadsTailsGame\obj\Debug\HeadsTailsGame.exe
+C:\Users\ipeke\Desktop\HeadsTailsGame\obj\Debug\HeadsTailsGame.pdb
