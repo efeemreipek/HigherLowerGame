@@ -1,0 +1,7 @@
+C:\Users\ipeke\Desktop\college-projects\MatrixCalculator\bin\Debug\MatrixCalculator.exe.config
+C:\Users\ipeke\Desktop\college-projects\MatrixCalculator\bin\Debug\MatrixCalculator.exe
+C:\Users\ipeke\Desktop\college-projects\MatrixCalculator\bin\Debug\MatrixCalculator.pdb
+C:\Users\ipeke\Desktop\college-projects\MatrixCalculator\obj\Debug\MatrixCalculator.csprojAssemblyReference.cache
+C:\Users\ipeke\Desktop\college-projects\MatrixCalculator\obj\Debug\MatrixCalculator.csproj.CoreCompileInputs.cache
+C:\Users\ipeke\Desktop\college-projects\MatrixCalculator\obj\Debug\MatrixCalculator.exe
+C:\Users\ipeke\Desktop\college-projects\MatrixCalculator\obj\Debug\MatrixCalculator.pdb
