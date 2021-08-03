@@ -16,17 +16,18 @@ namespace MatrixCalculator
 
 			Console.WriteLine("=============Welcome to the Matrix Calculator=============");
 			Console.WriteLine();
-			Console.WriteLine("OK, let's see what you can do");
+			Console.WriteLine("OK, let's see what you can calculate");
 
 			bool cont = true;
 			while(cont) // To continue if we want
 			{
-				Console.WriteLine("[1] Multiplication by a scalar");
-				Console.WriteLine("[2] Trace");
-				Console.WriteLine("[3] Transpose");
-				Console.WriteLine("[4] Determinant");
+				Console.WriteLine("[1] Multiplication by a matrix");
+				Console.WriteLine("[2] Multiplication by a scalar");
+				Console.WriteLine("[3] Determinant");
+				Console.WriteLine("[4] Transpose");
 				Console.WriteLine("[5] Adjoint");
 				Console.WriteLine("[6] Inverse");
+				Console.WriteLine("[7] Trace");
 				Console.WriteLine();
 				Console.Write("Write the number which calculation do you want: ");
 				string ans = Console.ReadLine().Trim();
@@ -35,24 +36,27 @@ namespace MatrixCalculator
 				switch (ans)
 				{
 					case "1":
+						MatrixMultiplication(GetUserMatrix(), GetUserMatrix2(), pr.write);
+						break;
+					case "2":
 						Console.Write("What do you want to muliply by: ");
 						float scalar = float.Parse(Console.ReadLine().Trim());
 						MatrixMultiplicationByScalar(GetUserMatrix(), scalar, pr.write);
 						break;
-					case "2":
-						Console.WriteLine("Trace of your matrix is: {0}", MatrixTrace(GetUserMatrix()));
-						break;
 					case "3":
-						MatrixTranspose(GetUserMatrix(),pr.write);
+						Console.WriteLine("Determinant of your matrix is: {0}", MatrixDeterminant(GetUserMatrix()));
 						break;
 					case "4":
-						Console.WriteLine("Determinant of your matrix is: {0}", MatrixDeterminant(GetUserMatrix()));
+						MatrixTranspose(GetUserMatrix(), pr.write);
 						break;
 					case "5":
 						MatrixAdjoint(GetUserMatrix(), pr.write);
 						break;
 					case "6":
 						MatrixInverse(GetUserMatrix(), pr.write);
+						break;
+					case "7":
+						Console.WriteLine("Trace of your matrix is: {0}", MatrixTrace(GetUserMatrix()));
 						break;
 				}
 
@@ -198,6 +202,7 @@ namespace MatrixCalculator
 			// To know which by which matrix it is
 			Console.Write("What size is your matrix: ");
 			size = Convert.ToInt32(Console.ReadLine().Trim());
+			Console.WriteLine();
 
 			// Cannot be a matrix if it is 1x1 or less
 			if (size <= 1)
@@ -205,6 +210,40 @@ namespace MatrixCalculator
 				Console.WriteLine("You entered wrong number.");
 				Environment.Exit(0);
 			}
+
+			// Placing numbers to the matrix 
+			float[,] userMatrix = new float[size, size];
+
+			for (int i = 0; i < size; i++)
+			{
+				for (int j = 0; j < size; j++)
+				{
+					Console.Write("Please enter your value at [{0},{1}]: ", i + 1, j + 1);
+					userMatrix[i, j] = float.Parse(Console.ReadLine().Trim());
+				}
+			}
+
+			Console.WriteLine("====================================");
+			Console.WriteLine("Here is your matrix");
+			Console.WriteLine();
+
+			// Writing
+			for (int i = 0; i < size; i++)
+			{
+				for (int j = 0; j < size; j++)
+				{
+					Console.Write(userMatrix[i, j] + " ");
+				}
+				Console.WriteLine();
+			}
+			Console.WriteLine("====================================");
+
+			return userMatrix;
+		}
+
+		public static float[,] GetUserMatrix2()
+		{
+			var pr = new Program();
 
 			// Placing numbers to the matrix 
 			float[,] userMatrix = new float[size, size];
@@ -323,6 +362,36 @@ namespace MatrixCalculator
 			{
 				MatrixTranspose(tempMatrix, pr.write);
 			}
+			return tempMatrix;
+		}
+
+		public static float[,] MatrixMultiplication(float[,] matrix1, float[,] matrix2, bool write)
+		{
+			float[,] tempMatrix = new float[matrix1.GetLength(0), matrix1.GetLength(1)];
+
+			//Calculation
+			for (int i = 0; i < matrix1.GetLength(0); i++)
+			{
+				for (int j = 0; j < matrix1.GetLength(0); j++)
+				{
+					for (int k = 0; k < matrix1.GetLength(0); k++)
+					{
+						tempMatrix[i, j] += matrix1[i, k] * matrix2[k, j];
+					}
+				}
+			}
+
+			//Writing
+			for (int i = 0; i < size; i++)
+			{
+				for (int j = 0; j < size; j++)
+				{
+					Console.Write(tempMatrix[i, j] + " ");
+				}
+				Console.WriteLine();
+			}
+			Console.WriteLine("====================================");
+
 			return tempMatrix;
 		}
 	}
